@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->decimal('price', 10, 2);
+            $table->integer('stock_quantity');
+            $table->foreignId('author_id')->constrained(); // Liên kết với bảng authors
             $table->timestamps();
         });
     }
